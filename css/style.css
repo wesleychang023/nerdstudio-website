@@ -8,6 +8,11 @@
 
     --font-main: Arial, sans-serif;
 
+    --weight-regular:400;
+    --weight-medium:500;
+    --weight-bold:700;
+
+
     --text-xs:16px;
     --text-sm:20px;
     --text-md:24px;
@@ -53,6 +58,7 @@ body {
     color: var(--color-text);
    
     font-family: var(--font-main);
+    font-weight:var(--weight-regular);
 }
 
 
@@ -124,12 +130,68 @@ header img {
     width: 100%;
     gap: 5vw;
     padding-bottom: 0;
-}
 
-.service-menu h2 {
     font-size: var(--text-sm);
+    font-weight:var(--weight-regular);
     line-height: 1;
 }
+
+.service-menu a{
+
+    position: relative;
+    display: inline-block;
+
+    color: inherit;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+
+    transition: opacity .25s ease;
+
+}
+
+.service-menu:hover a {
+    opacity: .2;
+}
+
+.service-menu a:hover {
+    opacity: 1;
+}
+
+.service-menu a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    transform:translateX(-50%) scaleX(0);
+
+    width: 210px;
+    height:1px;
+
+    bottom:-8px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(216,212,204,.5),
+        rgba(216,212,204,.5),
+        transparent
+    );
+
+    transform-origin:center;
+
+    transition:transform .35s cubic-bezier(.22,1,.36,1);
+
+}
+
+.service-menu a:hover::after{
+
+    transform:translateX(-50%) scaleX(1);
+
+}
+
 
 /* =========================
    5. Logo Animation
@@ -170,28 +232,100 @@ header img {
 
 
 /* =========================
-   7. Member
+   Member
 ========================= */
 
 .member {
-
-    flex: 0 1 clamp(260px, 25vw, 500px);
     display: flex;
     flex-direction: column;
+
+    width: 30vw;
     gap: 40px;
+
+    color: inherit;
+    text-decoration: none;
+
+    padding: 20px;
+    border-radius: 8px;
+
+    transition:
+        background-color .3s ease,
+        transform .3s ease,
+        color .3s ease;
 
 }
 
+.member:hover{
+
+      background:
+
+        linear-gradient(
+            to top,
+
+            rgba(216,212,204,.08) 0%,
+
+            rgba(216,212,204,.05) 30%,
+
+            rgba(216,212,204,.02) 60%,
+
+            rgba(216,212,204,0) 100%
+        );
+}
+
+/* Member Heading */
+
+.member-top {
+    display: flex;
+    flex-direction: column;
+}
+
+.member-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Member Typography */
+
 .member h3 {
     font-size: var(--text-sm);
+    font-weight:var(--weight-medium);
 }
 
 .member h4 {
     font-size: var(--text-xl);
+    font-weight:var(--weight-bold);
 }
 
 .member p {
     font-size: var(--text-sm);
+    font-weight:var(--weight-regular);
+}
+
+
+/* Member Arrow */
+
+.member-arrow{
+
+    height:35px;
+
+    opacity:0;
+
+    transform:translateX(-6px);
+
+    transition:
+        opacity .25s ease,
+        transform .3s cubic-bezier(.22,1,.36,1);
+
+}
+
+.member:hover .member-arrow{
+
+    opacity:1;
+
+    transform:translateX(6px);
+
 }
 
 
@@ -233,7 +367,6 @@ header img {
         transparent,
         rgba(216,212,204,.25),
         rgba(216,212,204,.25),
-        rgba(216,212,204,.25),
         transparent
     );
 
@@ -270,20 +403,44 @@ header img {
 
 }
 
-.footer-contact a {
+.footer-contact a{
 
-    color: inherit;
-    text-decoration: none;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
 
-    opacity: 0.55;
+    gap: 10px;
 
-    transition: opacity .25s ease;
+    color:inherit;
+    text-decoration:none;
+
+    opacity:0.6;
+
+    transition:opacity .25s ease;
 
 }
 
-.footer-info a:hover{
+.arrow-icon{
 
-    opacity: 1;
+    display: block;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    
+    transition: 
+        transform .28s cubic-bezier(.22, 1, .36, 1);
+
+}
+
+.footer-contact a:hover{
+
+    opacity:1;
+
+}
+
+.footer-contact a:hover .arrow-icon{
+
+    transform:translateX(4px);
 
 }
 
