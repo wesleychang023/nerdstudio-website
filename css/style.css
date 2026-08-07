@@ -13,6 +13,7 @@
     --weight-bold:700;
 
 
+    --text-xxs:12px;
     --text-xs:16px;
     --text-sm:20px;
     --text-md:24px;
@@ -28,7 +29,8 @@
     
     /* Layout */
     --top-area-height: clamp(100px, 12vh, 140px);
-
+    --page-top-space: 100px;
+    --title-bottom-space: 56px;
     
     /* Spacing */
     --page-padding: clamp(16px, 1vw, 48px);
@@ -464,4 +466,425 @@ header img {
 
 .copyright{
     font-size: var(--text-xs);
+}
+
+
+/* =========================
+   7. Engineering Page
+========================= */
+
+/* 7.1 Page */
+
+.engineering-page {
+    min-height: 100vh;
+
+    background-color: var(--color-bg);
+
+    padding-top: calc(var(--top-area-height) + var(--page-top-space));
+}
+
+.page-header{
+    margin-bottom: 56px;
+}
+
+.page-title {
+    text-align: center;
+
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 700;
+    line-height: .95;
+
+    letter-spacing: -.04em;
+
+    margin-bottom: 20px;
+}
+
+.page-subtitle {
+    text-align: center;
+
+    font-size: clamp(.8rem, 2vw, 1.5rem);
+
+    letter-spacing: .1em;
+    text-transform: uppercase;
+
+    opacity: .55;
+}
+
+.engineering-hero {
+    text-align: center;
+    
+    opacity: 1;
+    
+    transition: opacity .08s linear;
+
+    will-change: opacity, transform;
+
+    margin-bottom: 80px;
+}
+
+.engineering-title,
+.engineering-subtitle {
+    transition: opacity .08s linear;
+}
+
+
+/* =========================
+   Masonry Project Wall
+========================= */
+
+.project-wall {
+
+     --project-column-gap: 20px;
+    --project-card-gap: 20px;
+
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    /* 1px 為單位，讓 JS 精準計算高度 */
+    grid-auto-rows: 1px;
+
+    /* 垂直距離交給卡片的 margin-bottom 控制 */
+    row-gap: 0;
+    column-gap: 20px;
+
+    align-items: start;
+
+    padding:
+        calc(var(--top-area-height) + 40px)
+        var(--about-padding)
+        120px;
+}
+
+
+/* =========================
+   Masonry Project Wall
+========================= */
+
+.project-wall {
+    --project-gap: 20px;
+    --project-columns: 5;
+
+    position: relative;
+
+    width: 100%;
+
+    padding:
+        calc(var(--top-area-height) + 40px)
+        var(--about-padding)
+        120px;
+}
+
+
+/* =========================
+   Project Card
+========================= */
+
+.project-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: calc(
+        (
+            100%
+            - (var(--about-padding) * 2)
+            - (var(--project-gap) * (var(--project-columns) - 1))
+        )
+        / var(--project-columns)
+    );
+
+    overflow: hidden;
+
+    color: var(--color-text);
+    background-color: rgba(216, 212, 204, 0.08);
+
+    border-radius: 16px;
+
+    transition:
+        transform .45s cubic-bezier(.22, 1, .36, 1),
+        background-color .35s ease;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+    background-color: rgba(216, 212, 204, 0.12);
+}
+
+
+/* =========================
+   Project Media
+========================= */
+
+.project-media {
+    aspect-ratio: 1 / 1;
+
+    margin: 14px;
+    overflow: hidden;
+
+    background-color: #000;
+    border-radius: 12px;
+}
+
+.project-media img,
+.project-media video {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition:
+        transform .45s cubic-bezier(.22, 1, .36, 1);
+}
+
+.project-card:hover .project-media img,
+.project-card:hover .project-media video,
+.project-card:focus-within .project-media img,
+.project-card:focus-within .project-media video {
+    transform: scale(1.015);
+}
+
+
+/* =========================
+   Project Content
+========================= */
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+    padding: 0 16px 16px;
+}
+
+.project-artist,
+.project-title,
+.project-concept {
+    margin: 0;
+}
+
+.project-artist {
+    font-size: var(--text-xs);
+    line-height: 1.2;
+
+    opacity: .65;
+}
+
+.project-title {
+    font-size: var(--text-sm);
+    line-height: 1.1;
+}
+
+/* =========================
+   Links
+========================= */
+
+.project-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 10px;
+    margin-top: 3px;
+}
+
+.project-links a {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+    width: fit-content;
+
+    color: var(--color-text);
+    text-decoration: none;
+
+    font-size: var(--text-xs);
+    line-height: 1.2;
+
+    opacity: .6;
+
+    transition: opacity .3s ease;
+}
+
+.project-links img{
+    width: 14px;
+
+    opacity: .35;          /* 原本就看得到 */
+    transform: translateX(-4px);
+
+    transition:
+        opacity .3s ease,
+        transform .3s ease;
+}
+
+.project-links a:hover img{
+    opacity: 1;
+    transform: translateX(4px);
+}
+
+.project-links a span {
+    white-space: nowrap;
+}
+
+.project-link-arrow {
+    display: block;
+
+    width: 16px;
+    height: 16px;
+
+    flex-shrink: 0;
+
+    opacity: 0;
+    transform: translateX(-5px);
+
+    transition:
+        opacity .3s ease,
+        transform .3s cubic-bezier(.22, 1, .36, 1);
+}
+
+.project-links a:hover,
+.project-links a:focus-visible {
+    opacity: 1;
+}
+
+.project-links a:hover .project-link-arrow,
+.project-links a:focus-visible .project-link-arrow {
+    opacity: 1;
+    transform: translateX(3px);
+}
+
+/* =========================
+   Expandable Concept
+========================= */
+
+.project-extra {
+    max-height: 0;
+    margin-top: 0;
+
+    overflow: hidden;
+    opacity: 0;
+
+    transform: translateY(-8px);
+
+    transition:
+        max-height .5s cubic-bezier(.22, 1, .36, 1),
+        margin-top .4s ease,
+        opacity .3s ease,
+        transform .4s cubic-bezier(.22, 1, .36, 1);
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.project-card:hover .project-extra,
+.project-card:focus-within .project-extra {
+    max-height: 500px;
+    margin-top: 16px;
+
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card.is-open .project-extra {
+    max-height: 500px;
+    margin-top: 16px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-concept {
+    font-size: var(--text-xxs);
+    line-height: 1.45;
+
+    opacity: .75;
+}
+
+
+/* =========================
+   Project Tags
+========================= */
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.project-tags span {
+    padding: 4px 9px;
+
+    font-size: 11px;
+    line-height: 1;
+
+    border: 1px solid rgba(216, 212, 204, .65);
+    border-radius: 999px;
+}
+
+
+/* =========================
+   Project Scroll Reveal
+========================= */
+
+.project-card {
+    opacity: 0;
+
+    translate: 0 40px;
+
+    transition:
+        opacity .7s cubic-bezier(.22, 1, .36, 1),
+        translate .7s cubic-bezier(.22, 1, .36, 1),
+        background-color .35s ease;
+}
+
+.project-card.is-visible {
+    opacity: 1;
+    translate: 0 0;
+}
+
+
+/* =========================
+   Responsive Columns
+========================= */
+
+@media (max-width: 1400px) {
+    .project-wall {
+        --project-columns: 4;
+    }
+}
+
+@media (max-width: 1100px) {
+    .project-wall {
+        --project-columns: 3;
+    }
+}
+
+@media (max-width: 800px) {
+    .project-wall {
+        --project-columns: 2;
+    }
+}
+
+@media (max-width: 520px) {
+    .project-wall {
+        --project-columns: 1;
+    }
+}
+
+@media (hover: none) {
+    .project-card {
+        cursor: pointer;
+    }
+
+    .project-card.is-open .project-extra {
+        max-height: 800px;
+        margin-top: 16px;
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
