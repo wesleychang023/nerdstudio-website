@@ -10,25 +10,67 @@
 <body>
 
     <!-- Top Area -->
-    <div class="top-area">
+            <div class="top-area">
 
         <header>
+
             <h1>
                 <a href="index.html">
-                    <img 
-                    src="images/ui/NerdstudioLogoBlack.svg" 
-                    alt="NERD STUDIO Logo"
-                    width="50"
-                    height="31.5"
-                    >
+                    <img
+                        src="images/ui/NerdstudioLogoBlack.svg"
+                        alt="Nerd Studio">
                 </a>
             </h1>
-        </header>   
+
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-label="Open menu"
+                aria-expanded="false">
+
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </header>
+
 
         <nav class="service-menu">
-            <a href="#engineer">ENGINEER</a>
-            <a href="#arrangement">ARRANGEMENT</a>
-            <a href="#design">DESIGN</a>
+
+            <a href="engineering.html">
+                ENGINEER
+            </a>
+
+            <a href="arrangement.html">
+                ARRANGEMENT
+            </a>
+
+            <a 
+                href="design.html"
+                class="active">
+                DESIGN
+            </a>
+
+        </nav>
+
+    </div>
+
+
+        <nav class="service-menu">
+
+            <a href="engineering.html">
+                ENGINEER
+            </a>
+
+            <a href="arrangement.html">
+                ARRANGEMENT
+            </a>
+
+            <a href="design.html">
+                DESIGN
+            </a>
+
         </nav>
 
     </div>
@@ -92,6 +134,7 @@
 
 </footer>
 
+<script src="js/mobile-menu.js"></script>
 </body>
 
 </html>
