@@ -43,7 +43,7 @@
     /* Spacing */
 
     --page-padding: clamp(16px, 1vw, 48px);
-    --about-padding: clamp(20px, 5vw, 100px);
+    --about-padding: clamp(20px, 3vw, 100px);
     --section-gap: clamp(20px, 3vw, 48px);
 }
 
@@ -398,7 +398,7 @@ header img {
 }
 
 .member p {
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
     font-weight: var(--weight-regular);
 }
 
@@ -407,7 +407,7 @@ header img {
 /* Member Arrow */
 
 .member-arrow {
-    height: 35px;
+    height: 30px;
 
     opacity: 0;
 
@@ -577,7 +577,8 @@ header img {
    8. Engineering Page
 ========================= */
 
-.engineering-page {
+.engineering-page,
+.arrangement-page {
     min-height: 100vh;
 
     padding-top:
@@ -650,7 +651,7 @@ header img {
 ========================= */
 
 .project-wall {
-    --project-gap: 20px;
+    --project-gap: 15px;
     --project-columns: 5;
 
     position: relative;
@@ -693,7 +694,7 @@ header img {
     background-color:
         rgba(216, 212, 204, .08);
 
-    border-radius: 16px;
+    border-radius: 8px;
 
 
     /* Scroll reveal initial state */
@@ -738,13 +739,13 @@ header img {
 .project-media {
     aspect-ratio: 1 / 1;
 
-    margin: 14px;
+    margin: 10px;
 
     overflow: hidden;
 
     background-color: #000;
 
-    border-radius: 12px;
+    border-radius: 6px;
 }
 
 .project-media img,
@@ -1072,10 +1073,12 @@ header img {
         flex-direction: column;
         justify-content: center;
 
+        align-items: center;
+
         width: 32px;
         height: 32px;
 
-        gap: 6px;
+        gap: 10px;
 
         z-index: 5;
     }
@@ -1083,10 +1086,12 @@ header img {
     .menu-toggle span {
         display: block;
 
-        width: 24px;
-        height: 1.5px;
+        width: 30px;
+        height: 2px;
 
         background-color: currentColor;
+
+        flex-shrink: 0;
 
         transform-origin: center;
 
@@ -1179,13 +1184,13 @@ header img {
 
     .menu-toggle.is-open span:first-child {
         transform:
-            translateY(3.75px)
+            translateY(6px)
             rotate(45deg);
     }
 
     .menu-toggle.is-open span:last-child {
         transform:
-            translateY(-3.75px)
+            translateY(-6px)
             rotate(-45deg);
     }
 
@@ -1203,35 +1208,44 @@ header img {
 
 @media (max-width: 700px) {
 
+        .about {
+            flex-direction: column;
+            gap: 40px;
 
-    /* About */
+            padding-inline: 24px;
+        }
 
-    .about {
-        flex-direction: column;
+        .member {
+            width: 100%;
 
-        gap: 40px;
+            background: linear-gradient(
+                to top,
+                rgba(216,212,204,.08) 0%,
+                rgba(216,212,204,.05) 30%,
+                rgba(216,212,204,.02) 60%,
+                rgba(216,212,204,0) 100%
+            );
+        }
 
-        padding-inline: 24px;
-    }
+        .member:hover {
+            background: linear-gradient(
+                to top,
+                rgba(216,212,204,.08) 0%,
+                rgba(216,212,204,.05) 30%,
+                rgba(216,212,204,.02) 60%,
+                rgba(216,212,204,0) 100%
+            );
+        }
 
+        .member-name {
+            justify-content: flex-start;
+            gap: 12px;
+        }
 
-    /* Members */
-
-    .member {
-        width: 100%;
-    }
-
-    .member-name {
-        justify-content: flex-start;
-
-        gap: 12px;
-    }
-
-    .member-arrow {
-        opacity: 1;
-
-        transform: none;
-    }
+        .member-arrow {
+            opacity: 1;
+            transform: none;
+        }
 
 
     /* Footer */
@@ -1267,3 +1281,165 @@ header img {
     }
 
 }
+
+
+
+
+/* =========================
+   Arrangement Works
+========================= */
+
+.arrangement-works {
+ display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+
+    width: 100%;
+
+    padding-inline: var(--about-padding);
+    padding-bottom: 120px;
+}
+
+/* Individual Work */
+
+.arrangement-work {
+    position: relative;
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 1.22 / 1;
+
+    overflow: hidden;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+    color: var(--color-text);
+
+    background-color: rgba(216, 212, 204, .08);
+}
+
+/* Image */
+
+.arrangement-work img {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform .7s cubic-bezier(.22, 1, .36, 1);
+}
+
+/* Hover Image */
+
+.arrangement-work:hover img {
+    transform: scale(1.04);
+}
+
+/* Overlay */
+
+.arrangement-work::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, .35);
+
+    opacity: 0;
+    transition: opacity .4s ease;
+}
+
+.arrangement-work:hover::after {
+    opacity: 1;
+}
+
+/* Work Information */
+
+.arrangement-work-info {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    padding: clamp(20px, 3vw, 48px);
+
+    opacity: 0;
+    transform: translateY(12px);
+
+    transition:
+        opacity .4s ease,
+        transform .4s ease;
+}
+
+.arrangement-work:hover .arrangement-work-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.arrangement-work-number {
+    font-size: 12px;
+    letter-spacing: .08em;
+}
+
+.arrangement-work-text h2 {
+    margin: 0 0 8px;
+
+    font-size: clamp(24px, 3.5vw, 56px);
+    line-height: 1;
+    letter-spacing: -.04em;
+}
+
+.arrangement-work-text p {
+    margin: 0;
+
+    font-size: clamp(11px, 1vw, 14px);
+    letter-spacing: .05em;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .arrangement-works {
+        grid-template-columns: 1fr;
+    }
+
+    .arrangement-work {
+        aspect-ratio: 1 / 1;
+    }
+
+    .arrangement-work-info {
+        padding: 24px;
+    }
+
+    .arrangement-work-text h2 {
+        font-size: clamp(28px, 7vw, 44px);
+    }
+
+}
+
+/* Touch devices: show information without hover */
+
+@media (hover: none) {
+
+    .arrangement-work::after {
+        opacity: 1;
+        background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, .65),
+            transparent 65%
+        );
+    }
+
+    .arrangement-work-info {
+        opacity: 1;
+        transform: none;
+    }
+
+}
+
