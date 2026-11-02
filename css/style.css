@@ -1818,9 +1818,12 @@ header img {
 
 
 
+
 /* ==========================
    PROJECT DETAIL PAGE
 ========================== */
+
+/* Page */
 
 .project-detail-page {
     min-height: 100vh;
@@ -1828,7 +1831,10 @@ header img {
     background: var(--color-bg);
 }
 
-/* Hero */
+
+/* ==========================
+   HERO
+========================== */
 
 .project-detail-hero {
     width: 100%;
@@ -1852,7 +1858,10 @@ header img {
     object-position: center center;
 }
 
-/* Introduction */
+
+/* ==========================
+   INTRODUCTION
+========================== */
 
 .project-detail-intro {
     width: 100%;
@@ -1865,11 +1874,15 @@ header img {
     text-align: left;
 }
 
+/* Project Title */
+
 .project-detail-content h1 {
     margin: 0 0 12px;
     font-size: calc(var(--text-xl) * 2);
     line-height: 1;
 }
+
+/* Artist */
 
 .project-detail-content .project-detail-artist {
     font-size: var(--text-xs);
@@ -1877,10 +1890,14 @@ header img {
     margin: 0 0 40px;
 }
 
+/* Description */
+
 .project-detail-content p {
     margin: 0 0 20px;
     line-height: 1.8;
 }
+
+/* Optional Heading / Description */
 
 .project-detail-heading h1 {
     margin: 0;
@@ -1905,31 +1922,10 @@ header img {
     margin-bottom: 20px;
 }
 
-/* Gallery */
 
-
-.project-detail-gallery {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0;
-    padding: 0;
-}
-
-.project-detail-gallery-item {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    background: #1c1c1c;
-}
-
-.project-detail-gallery-item img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-
+/* ==========================
+   CREDITS & LISTEN
+========================== */
 
 .project-detail-extras {
     display: grid;
@@ -1943,6 +1939,8 @@ header img {
     font-size: var(--text-sm);
     margin: 0 0 25px;
 }
+
+/* Listen Links */
 
 .project-detail-links a {
     display: flex;
@@ -1964,6 +1962,8 @@ header img {
     opacity: 1;
 }
 
+/* Custom Arrow */
+
 .project-link-arrow {
     display: block;
     width: 16px;
@@ -1977,6 +1977,7 @@ header img {
     transform: translateX(8px);
 }
 
+/* Credits */
 
 .project-detail-credits p {
     font-size: var(--text-xs);
@@ -1985,53 +1986,123 @@ header img {
     opacity: 0.6;
 }
 
+
+/* ==========================
+   GALLERY - SHARED
+========================== */
+
+.project-detail-gallery {
+    display: grid;
+    gap: 0;
+    padding: 0;
+}
+
+.project-detail-gallery-item {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.project-detail-gallery-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* ==========================
+   GALLERY - SQUARE
+   Fixed 4 columns / 1:1
+========================== */
+
+.gallery-square {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+}
+
+.gallery-square .project-detail-gallery-item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.gallery-square .project-detail-gallery-item img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* ==========================
+   GALLERY - WIDE
+   Automatic columns / 16:9
+========================== */
+
+.gallery-wide {
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+}
+
+.gallery-wide .project-detail-gallery-item {
+    aspect-ratio: 16 / 9;
+}
+
+
+/* ==========================
+   MOBILE
+========================== */
+
 @media (max-width: 700px) {
+
+    /* Hero */
+
+    .project-detail-hero-media {
+        aspect-ratio: 16 / 9;
+    }
+
+    /* Introduction */
+
+    .project-detail-intro {
+        width: 100%;
+        padding: 50px 0 70px;
+    }
+
+    .project-detail-content {
+        width: auto;
+        margin: 0 var(--about-padding);
+    }
+
+    /* Title */
+
+    .project-detail-content h1 {
+        font-size: clamp(24px, 6vw, 40px);
+        line-height: 1.1;
+        white-space: nowrap;
+    }
+
+    /* Credits & Listen */
+
     .project-detail-extras {
         grid-template-columns: 1fr;
         gap: 40px;
         margin-top: 50px;
     }
 
-    .project-detail-content h1 {
-    font-size: clamp(24px, 6vw, 40px);
-    line-height: 1.1;
-    white-space: nowrap;
-    }
-}
+    /* Gallery - Both Types */
 
-
-/* Mobile */
-
-@media (max-width: 700px) {
-    .project-detail-intro {
-        width: auto;
-        margin: 0;
+    .gallery-square,
+    .gallery-wide {
         grid-template-columns: 1fr;
-        gap: 40px;
-        padding: 50px var(--about-padding) 70px;
+        grid-auto-flow: row;
+        grid-auto-columns: auto;
+        gap: 0;
     }
 
-    .project-detail-content {
-    width: auto;
-    margin: 0 var(--about-padding);
-    }
-
-    .project-detail-hero-media {
-    aspect-ratio: 16 / 9;
-    }
-}
-
-@media (max-width: 700px) {
-    .project-detail-gallery {
-        grid-template-columns: 1fr;
-    }
-
-    .project-detail-gallery-item {
-        aspect-ratio: auto;
-    }
-
-    .project-detail-gallery-item img {
-        width: 100%;
-        height: auto;
-    }
 }
