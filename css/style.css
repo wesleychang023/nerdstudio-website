@@ -1344,6 +1344,24 @@ header img {
     transform: scale(1.04);
 }
 
+/* Arrangement - Hover Zoom */
+
+.arrangement-works > a {
+    display: block;
+    overflow: hidden;
+}
+
+.arrangement-works > a video,
+.arrangement-works > a img {
+    transition: transform 0.5s ease;
+}
+
+.arrangement-works > a:hover video,
+.arrangement-works > a:hover img {
+    transform: scale(1.05);
+}
+
+
 /* Overlay */
 
 .arrangement-work::after {
