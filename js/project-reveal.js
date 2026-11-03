@@ -1,4 +1,6 @@
-const projectCards = document.querySelectorAll(".project-card");
+const projectCards = document.querySelectorAll(
+    ".project-card, .arrangement-works > a, .design-card"
+);
 
 const projectObserver = new IntersectionObserver(
     (entries, observer) => {

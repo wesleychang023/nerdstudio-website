@@ -720,9 +720,10 @@ header img {
 
 /* Project reveal */
 
-.project-card.is-visible {
+.project-card.is-visible,
+.arrangement-works > a.is-visible,
+.design-card.is-visible {
     opacity: 1;
-
     translate: 0 0;
 }
 
@@ -2123,4 +2124,56 @@ header img {
         gap: 0;
     }
 
+}
+
+
+
+
+/* Arrangement & Design - Same Reveal as Engineering */
+
+.arrangement-works > a,
+.design-card {
+    opacity: 0;
+    translate: 0 40px;
+
+    transition:
+        opacity .7s cubic-bezier(.22, 1, .36, 1),
+        translate .7s cubic-bezier(.22, 1, .36, 1);
+}
+
+.arrangement-works > a.is-visible,
+.design-card.is-visible {
+    opacity: 1;
+    translate: 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .arrangement-works > a,
+    .design-card {
+        opacity: 1;
+        translate: none;
+        transition: none;
+    }
+}
+
+
+/* ==========================
+   DESIGN CARD HOVER ZOOM
+========================== */
+
+.design-card {
+    overflow: hidden;
+}
+
+/* 只放大圖片與影片，不影響文字 */
+.design-card img,
+.design-card video {
+    transition: transform 0.5s ease;
+}
+
+@media (hover: hover) {
+    .design-card:hover img,
+    .design-card:hover video {
+        transform: scale(1.05);
+    }
 }
