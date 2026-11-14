@@ -244,6 +244,21 @@
 </footer>
 
 <script src="js/mobile-menu.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const video = document.querySelector(".logo-animation video");
+        if (!video) return;
+
+        video.muted = true;
+        video.defaultMuted = true;
+        video.playsInline = true;
+
+        video.play().catch((error) => {
+            console.log("Autoplay unavailable:", error.name);
+        });
+    });
+</script>
 </body>
 
 </html>
