@@ -109,34 +109,51 @@
     <section class="design-works">
 
 
-    <!-- 第1排：16:9 大影片 -->
+    
+<!-- 第1排：Disease -->
     <div class="design-row design-row--full">
 
-        <a href="projects/disease.html" class="design-card">
-            <div class="design-card-media">
-                <video
-                    class="smart-video"
-                    muted
-                    loop
-                    playsinline
-                    preload="none"
-                    poster="images/Dposter/D.webp"
-                >
-                <source src="images/design/DR 169.mp4" type="video/mp4">
-                </video>
-            </div>
+    <a href="projects/disease.html" class="design-card">
 
-            <div class="design-card-info">
-                <p class="design-card-artist">夢迴</p>
-                <h2 class="design-card-title">EP《Disease》</h2>
-                <div class="design-card-tags">
-                    <span>VISUAL IDENTITY</span>
-                    <span>MUSIC ARTWORK</span>
-                </div>
-            </div>
-        </a>
+        <div class="design-card-media">
+
+        <!-- Desktop: 16:9 -->
+        <video
+            class="smart-video disease-desktop"
+            muted loop playsinline preload="none"
+            poster="images/Dposter/D.webp"
+        >
+            <source src="images/design/DR 169.mp4" type="video/mp4">
+        </video>
+
+        <!-- Mobile: 1:1 -->
+        <video
+            class="smart-video disease-mobile"
+            muted loop playsinline preload="none"
+        >
+            <source src="images/design/DR.mp4" type="video/mp4">
+        </video>
+
+        </div>
+
+        <!-- 作品資訊：一定要在 design-card 裡面 -->
+        <div class="design-card-info">
+
+        <p class="design-card-artist">夢迴</p>
+
+        <h2 class="design-card-title">EP《Disease》</h2>
+
+        <div class="design-card-tags">
+            <span>VISUAL IDENTITY</span>
+            <span>MUSIC ARTWORK</span>
+        </div>
+
+        </div>
+
+    </a>
 
     </div>
+
 
 
     <!-- 第一排：三張正方形作品 -->
@@ -248,7 +265,7 @@
             <a href="projects/anymore.html" class="design-card">
                 <div class="design-card-media">
                     <video
-                    class="smart-video"
+                    class="smart-video landscape-video"
                     muted
                     loop
                     playsinline
@@ -400,7 +417,7 @@
         rel="noopener noreferrer">
             <div class="design-card-media">
                 <video
-                    class="smart-video"
+                    class="smart-video landscape-video"
                     muted
                     loop
                     playsinline
@@ -487,7 +504,7 @@
    rel="noopener noreferrer">
             <div class="design-card-media">
                 <video
-                    class="smart-video"
+                    class="smart-video landscape-video"
                     muted
                     loop
                     playsinline
@@ -551,7 +568,7 @@
         <a class="design-card">
             <div class="design-card-media">
                 <video
-                    class="smart-video"
+                    class="smart-video landscape-video"
                     muted
                     loop
                     playsinline

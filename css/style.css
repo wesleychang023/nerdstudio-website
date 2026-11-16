@@ -1888,6 +1888,66 @@ header img {
 
 }
 
+/* Design page: 16:9 videos become square on mobile */
+@media (max-width: 768px) {
+
+  /* Change the media container to square */
+  .design-card-media:has(video.landscape-video) {
+    aspect-ratio: 1 / 1 !important;
+    width: 100%;
+    height: auto !important;
+    overflow: hidden;
+  }
+
+  /* Crop the video to fill the square */
+  .design-card-media video.landscape-video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+  }
+
+}
+
+
+
+/* =====================================
+   Disease — Responsive Video
+===================================== */
+
+/* Desktop: 16:9 */
+.design-row--full .design-card-media:has(.disease-desktop) {
+    aspect-ratio: 16 / 9;
+    position: relative;
+}
+
+.design-card-media video.disease-desktop {
+    display: block;
+}
+
+.design-card-media video.disease-mobile {
+    display: none;
+}
+
+/* Mobile: 1:1 */
+@media (max-width: 768px) {
+
+    .design-row--full .design-card-media:has(.disease-mobile) {
+        aspect-ratio: 1 / 1;
+    }
+
+    .design-card-media video.disease-desktop {
+        display: none;
+    }
+
+    .design-card-media video.disease-mobile {
+        display: block;
+    }
+
+}
+
 
 
 
