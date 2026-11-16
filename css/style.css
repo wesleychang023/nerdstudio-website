@@ -1106,7 +1106,8 @@ header img {
 
         transition:
             transform .35s cubic-bezier(.22, 1, .36, 1),
-            opacity .25s ease;
+            opacity .25s ease,
+            background-color .35s ease;
     }
 
 
@@ -1203,6 +1204,25 @@ header img {
             rotate(-45deg);
     }
 
+    /* Logo & Hamburger color transition */
+
+    .top-area header h1 img {
+    transition: filter .35s ease;
+    }
+
+    body.menu-open .top-area header h1 img {
+    filter: brightness(0) invert(1);
+    }
+
+    .menu-toggle {
+    color: #000;
+    transition: color .35s ease;
+    }
+
+    body.menu-open .menu-toggle {
+    color: #d8d4cc;
+    }
+    
 }
 
 
