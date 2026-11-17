@@ -427,7 +427,6 @@ header img {
 }
 
 
-
 /* =========================================================
    FOOTER
 ========================================================= */
@@ -633,7 +632,7 @@ header img {
         clamp(.8rem, 2vw, 1.5rem);
 
     letter-spacing: .1em;
-    text-transform: uppercase;
+    text-transform: none;
 
     opacity: .55;
 }
